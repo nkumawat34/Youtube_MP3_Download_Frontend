@@ -12,7 +12,7 @@ function App() {
   const download= async ()=>{
     
     try {
-      const response = await axios.post('http://localhost:3000/download', { url });
+      const response = await axios.post('https://youtube-mp3-download-backend.onrender.com/download', { url });
       console.log(response)
       setLink(response.data.link)
       console.log(link)
