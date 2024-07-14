@@ -40,7 +40,7 @@ function App() {
      </div>
      {link?<h2 class='text-2xl'>MP3 LINK</h2>:""}{link}
      {link!=''?<div class='mt-[6vh]'><a href={link} class=' p-3 bg-cyan-300'>Download</a></div>:""}
-     <div class='mt-[200px] flex flex-row justify-center '><div class='mx-3'><FaHeart size={50} color={"red"} /></div><h3 class='font-bold italic text-2xl'>Made By Neeraj Kumawat</h3></div>
+     <div class='mt-[250px] flex flex-row justify-center '><div class='mx-3'><FaHeart size={50} color={"red"} /></div><h3 class='font-bold italic text-2xl'>Made By Neeraj Kumawat</h3></div>
     </div>
   );
 }
