@@ -11,12 +11,13 @@ function App() {
   const [link,setLink]=useState('')
   const download= async ()=>{
     
+    document.getElementById("load").style.display="block";
     try {
       const response = await axios.post('https://youtube-mp3-download-backend.onrender.com/download', { url });
       console.log(response)
       setLink(response.data.link)
-      console.log(link)
-    
+      setUrl(""); // Clear the URL input
+      document.getElementById("load").style.display="none";
       
     } catch (error) {
     console.log("Error occured")
@@ -35,9 +36,10 @@ function App() {
       </div>
       <div className='flex justify-center'><div><h1 class='text-3xl tracking-wide'>Any youtube video <br/> can be downloaded in MP3</h1></div></div>
      <div class='mt-[8vh]'><label class='text-2xl'>URL:-</label>
-     <input class='w-[30vw] border-2 border-indigo-500/100 mx-4' onChange={(e)=>setUrl(e.target.value)}></input>
+     <input class='w-[30vw] border-2 border-indigo-500/100 mx-4' value={url} onChange={(e)=>setUrl(e.target.value)}></input>
      <button class='p-3 bg-[#FF0000] rounded-full ' onClick={()=>download()}>Generate Link</button>
      </div>
+     <div class='hidden' id="load">Loading....................................................</div>
      {link?<h2 class='text-2xl'>MP3 LINK</h2>:""}{link}
      {link!=''?<div class='mt-[6vh]'><a href={link} class=' p-3 bg-cyan-300'>Download</a></div>:""}
      <div class='mt-[300px] flex flex-row justify-center '><div class='mx-3'><FaHeart size={50} color={"red"} /></div><h3 class='font-bold italic text-2xl'>Made By Neeraj Kumawat</h3></div>
